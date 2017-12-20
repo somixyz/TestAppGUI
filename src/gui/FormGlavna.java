@@ -48,6 +48,11 @@ public class FormGlavna extends javax.swing.JFrame {
         jmOsoba.add(jmiOsobaPrikaziCombo);
 
         jmiOsobaUnos.setText("Unos");
+        jmiOsobaUnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiOsobaUnosActionPerformed(evt);
+            }
+        });
         jmOsoba.add(jmiOsobaUnos);
 
         jMenuBar1.add(jmOsoba);
@@ -73,6 +78,11 @@ public class FormGlavna extends javax.swing.JFrame {
         formaPrikaz.setVisible(true);
         Kontroler.getInstance().registrujFormu(formaPrikaz);
     }//GEN-LAST:event_jmiOsobaPrikaziComboActionPerformed
+
+    private void jmiOsobaUnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiOsobaUnosActionPerformed
+        JDialog formaUnos = new FormOsobaUnos(this, false);
+        formaUnos.setVisible(true);
+    }//GEN-LAST:event_jmiOsobaUnosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

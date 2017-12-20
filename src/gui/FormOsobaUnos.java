@@ -5,11 +5,20 @@
  */
 package gui;
 
+import domen.EnumPol;
+import domen.Osoba;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import kontroler.Kontroler;
+
 /**
  *
  * @author acer e1
  */
-public class FormOsobaUnos extends javax.swing.JDialog implements IOsvezi{
+public class FormOsobaUnos extends javax.swing.JDialog {
 
     /**
      * Creates new form FormOsobaUnos
@@ -28,6 +37,7 @@ public class FormOsobaUnos extends javax.swing.JDialog implements IOsvezi{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupPol = new javax.swing.ButtonGroup();
         jLabel5 = new javax.swing.JLabel();
         jrbMuski = new javax.swing.JRadioButton();
         jrbZenski = new javax.swing.JRadioButton();
@@ -44,9 +54,11 @@ public class FormOsobaUnos extends javax.swing.JDialog implements IOsvezi{
 
         jLabel5.setText("Format: dd.MM.YYYY.");
 
+        buttonGroupPol.add(jrbMuski);
         jrbMuski.setSelected(true);
         jrbMuski.setText("Muski");
 
+        buttonGroupPol.add(jrbZenski);
         jrbZenski.setText("Zenski");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -97,7 +109,7 @@ public class FormOsobaUnos extends javax.swing.JDialog implements IOsvezi{
                                     .addComponent(jrbMuski)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jrbZenski))))))
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,19 +135,39 @@ public class FormOsobaUnos extends javax.swing.JDialog implements IOsvezi{
                     .addComponent(jrbZenski))
                 .addGap(19, 19, 19)
                 .addComponent(jbtnSacuvaj)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnSacuvajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSacuvajActionPerformed
-          
+        try {
+            String ime = jtxtIme.getText().trim();
+            String prezime = jtxtPrezime.getText().trim();
+            String sdatum = jtxtDatumRodjenja.getText().trim();
+            Date datum = new SimpleDateFormat("dd.MM.yyyy.").parse(sdatum);
+            EnumPol pol = EnumPol.MUSKI;
+
+            if (jrbZenski.isSelected()) {
+                pol = EnumPol.ZENSKI;
+            }
+            Osoba osoba = new Osoba(ime, prezime, datum, pol);
+            //RepozitorijumOsoba repo=new RepozitorijumOsoba();
+            // repo.dodajOsobu(osoba);
+
+            //Kontroler kontroler1 = new Kontroler();
+            Kontroler kontroler = Kontroler.getInstance();
+            kontroler.dodajOsobu(osoba);
+//            Kontroler.getInstance().dodajOsobu(osoba);
+        } catch (ParseException ex) {
+            Logger.getLogger(FormOsobaUnos.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jbtnSacuvajActionPerformed
 
-     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroupPol;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -149,8 +181,4 @@ public class FormOsobaUnos extends javax.swing.JDialog implements IOsvezi{
     private javax.swing.JTextField jtxtPrezime;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void azurirajPodatke() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

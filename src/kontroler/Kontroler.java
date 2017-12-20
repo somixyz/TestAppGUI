@@ -6,6 +6,7 @@
 package kontroler;
 
 import domen.Osoba;
+import gui.IOsvezi;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JDialog;
@@ -36,5 +37,16 @@ public class Kontroler {
     public List<Osoba> vratiOsobe(){
         return repozitorijumOsoba.vratiOsobe();
     }
-
+    public void registrujFormu(JDialog forma){
+        forme.add(forma);
+        ((IOsvezi) forma).azurirajPodatke();
+    }
+    private void osveziForme() {
+        for (JDialog forma : forme) {
+            ((IOsvezi) forma).azurirajPodatke();
+        }
+    }
+    
+    
+    
 }

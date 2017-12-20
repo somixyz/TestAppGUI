@@ -18,6 +18,13 @@ public class Osoba {
     private Date datumRodjenja;
     private EnumPol pol;
 
+    public Osoba(String ime, String prezime, Date datumRodjenja, EnumPol pol) {
+        this.ime = ime;
+        this.prezime = prezime;
+        this.datumRodjenja = datumRodjenja;
+        this.pol = pol;
+    }
+
     public String getIme() {
         return ime;
     }

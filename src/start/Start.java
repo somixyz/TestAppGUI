@@ -14,6 +14,7 @@ import javax.swing.JFrame;
  */
 public class Start {
 
+    
     public static void main(String[] args) {
         JFrame forma = new FormGlavna();
         forma.setVisible(true);

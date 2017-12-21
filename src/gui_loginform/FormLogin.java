@@ -5,6 +5,10 @@
  */
 package gui_loginform;
 
+import gui.FormGlavna;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import kontroler.login.KontrolerLogin;
@@ -105,8 +109,16 @@ public class FormLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-//        KontrolerLogin.kontrolerAdmin.pokupiPodatke(jTextUserName, jPasswordField);
+        try {
+            if (KontrolerLogin.kontrolerAdmin.proveriPodatke(jTextUserName, jPasswordField)) {
+                JFrame forma = new FormGlavna();
+                forma.setVisible(true); 
+            }
+
 //        validirajFormu();
+        } catch (Exception ex) {
+            Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
@@ -120,8 +132,8 @@ public class FormLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jlblErrorPassword;
     private javax.swing.JLabel jlblErrorUsername;
     // End of variables declaration//GEN-END:variables
-   
-    public void  formjlblErrorUsername (String enter_value){
+
+    public void formjlblErrorUsername(String enter_value) {
         jlblErrorUsername.setText(enter_value);
     }
 }

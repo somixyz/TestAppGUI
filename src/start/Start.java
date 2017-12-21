@@ -6,6 +6,7 @@
 package start;
 
 import gui.FormGlavna;
+import gui_loginform.FormLogin;
 import javax.swing.JFrame;
 
 /**
@@ -16,7 +17,7 @@ public class Start {
 
     
     public static void main(String[] args) {
-        JFrame forma = new FormGlavna();
+        JFrame forma = new FormLogin();
         forma.setVisible(true);
     }
 }

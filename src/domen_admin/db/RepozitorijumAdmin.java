@@ -27,5 +27,10 @@ public class RepozitorijumAdmin {
     public List<Admin> vratiAdmine() {
         return admini;
     }
-
+    public boolean proveriUBazi(String username, String password){
+        for (Admin admin : admini) {
+            if(admin.getUserName().equals(username)&& admin.getPassword().equals(password)) return true; 
+        }
+    return false;
+    }
 }

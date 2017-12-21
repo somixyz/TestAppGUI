@@ -33,9 +33,11 @@ public class FormGlavna extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jmOsoba = new javax.swing.JMenu();
         jmiOsobaPrikaziCombo = new javax.swing.JMenuItem();
+        jmiOsobaPrikaziTabela = new javax.swing.JMenuItem();
         jmiOsobaUnos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Glavna forma");
 
         jmOsoba.setText("Osoba");
 
@@ -46,6 +48,14 @@ public class FormGlavna extends javax.swing.JFrame {
             }
         });
         jmOsoba.add(jmiOsobaPrikaziCombo);
+
+        jmiOsobaPrikaziTabela.setText("Prikazi tabela");
+        jmiOsobaPrikaziTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiOsobaPrikaziTabelaActionPerformed(evt);
+            }
+        });
+        jmOsoba.add(jmiOsobaPrikaziTabela);
 
         jmiOsobaUnos.setText("Unos");
         jmiOsobaUnos.addActionListener(new java.awt.event.ActionListener() {
@@ -84,11 +94,19 @@ public class FormGlavna extends javax.swing.JFrame {
         formaUnos.setVisible(true);
     }//GEN-LAST:event_jmiOsobaUnosActionPerformed
 
+    private void jmiOsobaPrikaziTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiOsobaPrikaziTabelaActionPerformed
+        JDialog formaPrikazTabela = new FormOsobaPrikazTabela(this, false);
+        formaPrikazTabela.setVisible(true);
+        Kontroler.getInstance().registrujFormu(formaPrikazTabela);
+    }//GEN-LAST:event_jmiOsobaPrikaziTabelaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jmOsoba;
     private javax.swing.JMenuItem jmiOsobaPrikaziCombo;
+    private javax.swing.JMenuItem jmiOsobaPrikaziTabela;
     private javax.swing.JMenuItem jmiOsobaUnos;
     // End of variables declaration//GEN-END:variables
+
 }

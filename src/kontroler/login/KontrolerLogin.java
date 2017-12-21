@@ -27,9 +27,7 @@ public class KontrolerLogin {
     }
 
     public static KontrolerLogin getInstance() {
-        if (kontrolerAdmin == null) {
-            return new KontrolerLogin();
-        }
+        if (kontrolerAdmin == null) return new KontrolerLogin();
         return kontrolerAdmin;
     }
 

@@ -8,6 +8,7 @@ package gui_loginform;
 import gui.FormGlavna;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -128,9 +129,7 @@ public class FormLogin extends javax.swing.JFrame {
         String username = jTextUserName.getText();
         String pass = jPasswordField.getText();
         if (username.equals("Milos") && pass.equals("123")) {
-//        try {
-//            System.out.println(jTextUserName.getText() + " , " + jPasswordField.getText());
-//            if (KontrolerLogin.kontrolerAdmin.proveriPodatke(jTextUserName, jPasswordField)) {
+
             Thread trd = new Thread() {
                 @Override
                 public void run() {
@@ -142,9 +141,11 @@ public class FormLogin extends javax.swing.JFrame {
         } else {
             jTextUserName.setText(null);
             jPasswordField.setText(null);
-            JOptionPane.showMessageDialog(null, "Invalid login message", "Login Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Invalid login message", "Login Error", JOptionPane.ERROR_MESSAGE, new ImageIcon("C:\\Users\\acer e1\\Documents\\NetBeansProjects\\GUIApp\\src\\image\\Error.png"));
         }
-//             
+//        try {
+//            System.out.println(jTextUserName.getText() + " , " + jPasswordField.getText());
+//            if (KontrolerLogin.kontrolerAdmin.proveriPodatke(jTextUserName, jPasswordField)) {
 ////        validirajFormu();   
 //        } catch (Exception ex) {ex.getMessage();
 //            Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);

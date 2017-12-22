@@ -126,11 +126,27 @@ public class FormLogin extends javax.swing.JFrame {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         //ovako sa unesenim vrednostima se pokrece
-        String username = jTextUserName.getText();
-        String pass = jPasswordField.getText();
-        if (username.equals("Milos") && pass.equals("123")) {
-
-            Thread trd = new Thread() {
+//        String username = jTextUserName.getText();
+//        String pass = jPasswordField.getText();
+//        if (username.equals("Milos") && pass.equals("123")) {
+//            
+//            Thread trd = new Thread() {
+//                @Override
+//                public void run() {
+//                    JFrame forma = new FormGlavna();
+//                    forma.setVisible(true);
+//                }
+//            };
+//            trd.run();
+//        } else {
+//            jTextUserName.setText(null);
+//            jPasswordField.setText(null);
+//            JOptionPane.showMessageDialog(null, "Invalid login message", "Login Error", JOptionPane.ERROR_MESSAGE, new ImageIcon("C:\\Users\\acer e1\\Documents\\NetBeansProjects\\GUIApp\\src\\image\\Error.png"));
+//        }
+        try {
+            System.out.println(jTextUserName.getText() + " , " + jPasswordField.getText());
+            if (KontrolerLogin.kontrolerAdmin.proveriPodatke(jTextUserName, jPasswordField)) {
+                 Thread trd = new Thread() {
                 @Override
                 public void run() {
                     JFrame forma = new FormGlavna();
@@ -138,18 +154,12 @@ public class FormLogin extends javax.swing.JFrame {
                 }
             };
             trd.run();
-        } else {
-            jTextUserName.setText(null);
-            jPasswordField.setText(null);
-            JOptionPane.showMessageDialog(null, "Invalid login message", "Login Error", JOptionPane.ERROR_MESSAGE, new ImageIcon("C:\\Users\\acer e1\\Documents\\NetBeansProjects\\GUIApp\\src\\image\\Error.png"));
+            }else {JOptionPane.showMessageDialog(null, "Invalid login message", "Login Error", JOptionPane.ERROR_MESSAGE, new ImageIcon("C:\\Users\\acer e1\\Documents\\NetBeansProjects\\GUIApp\\src\\image\\Error.png"));
+            }
+            
+        } catch (Exception ex) {ex.getMessage();
+            Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-//        try {
-//            System.out.println(jTextUserName.getText() + " , " + jPasswordField.getText());
-//            if (KontrolerLogin.kontrolerAdmin.proveriPodatke(jTextUserName, jPasswordField)) {
-////        validirajFormu();   
-//        } catch (Exception ex) {ex.getMessage();
-//            Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
-//        }
 
     }//GEN-LAST:event_jButtonLoginActionPerformed
 

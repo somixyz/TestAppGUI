@@ -40,7 +40,7 @@ public class KontrolerLogin {
             //            setLabelErrorUserName("");
             
         }
-        String password = Arrays.toString(jPasswordField.getPassword());
+        String password = jPasswordField.getText();
         if (password.isEmpty()) {
 //            setLabelErrorPassword("Enter value");
             throw new Exception("Empty string");

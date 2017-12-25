@@ -30,14 +30,13 @@ public class KontrolerLogin {
     public boolean proveriPodatke(JTextField jTextUserName, JPasswordField jPasswordField) throws Exception {
         String username = jTextUserName.getText().trim();
         if (username.isEmpty())
-            throw new Exception("Empty string / username");
+            throw new Exception("Empty text / insert username");
          
         String password = jPasswordField.getText();
         if (password.isEmpty())
-            throw new Exception("Empty string / password ");
+            throw new Exception("Empty text / insert password ");
         return validirajPodatkeIzBaze(username, password);
-    } 
-
+    }  
     private boolean validirajPodatkeIzBaze(String username, String password) {
       return getInstance().repozitorijumAdmin.proveriUBazi(username, password); 
     }

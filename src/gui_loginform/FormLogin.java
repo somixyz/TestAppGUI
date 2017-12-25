@@ -153,10 +153,9 @@ public class FormLogin extends javax.swing.JFrame {
                     new FormGlavna().setVisible(true);
                     JOptionPane.showConfirmDialog(null, "Login succesfully", "Login", JOptionPane.DEFAULT_OPTION);
                     Start.formaLogin.setVisible(false);
-                }
-            }.start();  
+                } }.start();  
             }else {JOptionPane.showMessageDialog(null, "Invalid login data (username/password)", "Login Error", JOptionPane.ERROR_MESSAGE, 
-                   //PROMELJIVO.... 
+                   //PROMELJIVA RUTA !!!!!
                     new ImageIcon("C:\\Users\\acer e1\\Documents\\NetBeansProjects\\GUIApp\\src\\image\\Error.png"));}
         } catch (Exception ex) {
             ex.getMessage(); 

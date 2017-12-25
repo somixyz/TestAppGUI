@@ -5,11 +5,7 @@
  */
 package kontroler.login;
 
-import domen_admin.Admin;
-import gui_loginform.FormLogin;
 import domen_admin.db.RepozitorijumAdmin;
-import java.util.Arrays;
-import java.util.List;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -19,7 +15,7 @@ import javax.swing.JTextField;
  */
 public class KontrolerLogin {
 
-    public static KontrolerLogin kontrolerAdmin;
+    private static KontrolerLogin kontrolerAdmin;
     private final RepozitorijumAdmin repozitorijumAdmin;
 
     private KontrolerLogin() {
@@ -35,15 +31,15 @@ public class KontrolerLogin {
         String username = jTextUserName.getText().trim();
         if (username.isEmpty()) {
 //            setLabelErrorUserName("Enter value");
-            throw new Exception("Empty string");
+            throw new Exception("Empty string / username");
         } else {
             //            setLabelErrorUserName("");
             
         }
         String password = jPasswordField.getText();
-        if (password.isEmpty()) {
+        if (password.isEmpty()) { 
 //            setLabelErrorPassword("Enter value");
-            throw new Exception("Empty string");
+            throw new Exception("Empty string / password ");
         } else {
 //            setLabelErrorPassword("");
         }
@@ -59,7 +55,7 @@ public class KontrolerLogin {
 //   }
 
     private boolean validirajPodatkeIzBaze(String username, String password) {
-      return repozitorijumAdmin.proveriUBazi(username, password); 
+      return getInstance().repozitorijumAdmin.proveriUBazi(username, password); 
     }
     
 }

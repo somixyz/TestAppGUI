@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import kontroler.login.KontrolerLogin;
+import start.Start;
 
 /**
  *
@@ -145,19 +146,23 @@ public class FormLogin extends javax.swing.JFrame {
 //        }
         try {
             System.out.println(jTextUserName.getText() + " , " + jPasswordField.getText());
-            if (KontrolerLogin.kontrolerAdmin.proveriPodatke(jTextUserName, jPasswordField)) {
-                 Thread trd = new Thread() {
+            if (KontrolerLogin.getInstance().proveriPodatke(jTextUserName, jPasswordField)) {
+                new Thread() {
                 @Override
                 public void run() {
-                    JFrame forma = new FormGlavna();
-                    forma.setVisible(true);
+                    try {
+                        new FormGlavna().setVisible(true);
+                        sleep(1000);
+                        Start.formaLogin.setVisible(false);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-            };
-            trd.run();
-            }else {JOptionPane.showMessageDialog(null, "Invalid login message", "Login Error", JOptionPane.ERROR_MESSAGE, new ImageIcon("C:\\Users\\acer e1\\Documents\\NetBeansProjects\\GUIApp\\src\\image\\Error.png"));
+            }.start();  
+            }else {JOptionPane.showMessageDialog(null, "Invalid login data (username/password)", "Login Error", JOptionPane.ERROR_MESSAGE, new ImageIcon("C:\\Users\\acer e1\\Documents\\NetBeansProjects\\GUIApp\\src\\image\\Error.png"));
             }
             
-        } catch (Exception ex) {ex.getMessage();
+        } catch (Exception ex) {ex.getMessage(); 
             Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
 

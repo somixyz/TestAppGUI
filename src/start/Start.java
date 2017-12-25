@@ -15,9 +15,9 @@ import javax.swing.JFrame;
  */
 public class Start {
 
-    
+    public static JFrame formaLogin;
     public static void main(String[] args) {
-        JFrame forma = new FormLogin();
-        forma.setVisible(true);
+        Start.formaLogin = new FormLogin();
+        formaLogin.setVisible(true);
     }
 }

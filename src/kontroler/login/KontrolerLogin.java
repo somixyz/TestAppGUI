@@ -29,30 +29,14 @@ public class KontrolerLogin {
 
     public boolean proveriPodatke(JTextField jTextUserName, JPasswordField jPasswordField) throws Exception {
         String username = jTextUserName.getText().trim();
-        if (username.isEmpty()) {
-//            setLabelErrorUserName("Enter value");
+        if (username.isEmpty())
             throw new Exception("Empty string / username");
-        } else {
-            //            setLabelErrorUserName("");
-            
-        }
+         
         String password = jPasswordField.getText();
-        if (password.isEmpty()) { 
-//            setLabelErrorPassword("Enter value");
+        if (password.isEmpty())
             throw new Exception("Empty string / password ");
-        } else {
-//            setLabelErrorPassword("");
-        }
         return validirajPodatkeIzBaze(username, password);
-    }
-//    private void setLabelErrorUserName(String enter_value) {
-//         formjlblErrorUsername(enter_value);
-//    }
-//
-//    private void setLabelErrorPassword(String enter_value) {
-//        formjlblErrorPassword.setText(enter_value);
-//    }
-//   }
+    } 
 
     private boolean validirajPodatkeIzBaze(String username, String password) {
       return getInstance().repozitorijumAdmin.proveriUBazi(username, password); 

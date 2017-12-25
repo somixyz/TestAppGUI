@@ -150,20 +150,17 @@ public class FormLogin extends javax.swing.JFrame {
                 new Thread() {
                 @Override
                 public void run() {
-                    try {
-                        new FormGlavna().setVisible(true);
-                        sleep(1000);
-                        Start.formaLogin.setVisible(false);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    new FormGlavna().setVisible(true);
+                    JOptionPane.showConfirmDialog(null, "Login succesfully", "Login", JOptionPane.DEFAULT_OPTION);
+                    Start.formaLogin.setVisible(false);
                 }
             }.start();  
-            }else {JOptionPane.showMessageDialog(null, "Invalid login data (username/password)", "Login Error", JOptionPane.ERROR_MESSAGE, new ImageIcon("C:\\Users\\acer e1\\Documents\\NetBeansProjects\\GUIApp\\src\\image\\Error.png"));
-            }
-            
-        } catch (Exception ex) {ex.getMessage(); 
-            Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
+            }else {JOptionPane.showMessageDialog(null, "Invalid login data (username/password)", "Login Error", JOptionPane.ERROR_MESSAGE, 
+                   //PROMELJIVO.... 
+                    new ImageIcon("C:\\Users\\acer e1\\Documents\\NetBeansProjects\\GUIApp\\src\\image\\Error.png"));}
+        } catch (Exception ex) {
+            ex.getMessage(); 
+            if(ex.getMessage().contains("password")) { formjlblErrorPassword(ex.getMessage());}  else { formjlblErrorUsername(ex.getMessage());} 
         }
 
     }//GEN-LAST:event_jButtonLoginActionPerformed
@@ -184,7 +181,10 @@ public class FormLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jlblErrorUsername;
     // End of variables declaration//GEN-END:variables
 
-    public void formjlblErrorUsername(String enter_value) {
+    private void formjlblErrorUsername(String enter_value) {
         jlblErrorUsername.setText(enter_value);
+    }
+    private void formjlblErrorPassword(String enter_value) {
+        jlblErrorPassword.setText(enter_value);
     }
 }

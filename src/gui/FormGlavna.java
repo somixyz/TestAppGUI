@@ -6,6 +6,7 @@
 package gui;
 
 import javax.swing.JDialog;
+import javax.swing.JRootPane;
 import kontroler.Kontroler;
 
 /**
@@ -117,5 +118,5 @@ public class FormGlavna extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiOsobaPrikaziTabela;
     private javax.swing.JMenuItem jmiOsobaUnos;
     // End of variables declaration//GEN-END:variables
-
+    
 }

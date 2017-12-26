@@ -32,7 +32,6 @@ public class Kontroler {
     }
     public void dodajOsobu(Osoba osoba){
         repozitorijumOsoba.dodajOsobu(osoba);
-        //
     }
     public List<Osoba> vratiOsobe(){
         return repozitorijumOsoba.vratiOsobe();

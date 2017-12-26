@@ -32,13 +32,13 @@ public class KontrolerLogin {
         if (username.isEmpty())
             throw new Exception("Empty text / insert username");
          
-        String password = jPasswordField.getText();
+        String password = jPasswordField.getText().trim();
         if (password.isEmpty())
             throw new Exception("Empty text / insert password ");
         return validirajPodatkeIzBaze(username, password);
     }  
     private boolean validirajPodatkeIzBaze(String username, String password) {
-      return getInstance().repozitorijumAdmin.proveriUBazi(username, password); 
+      return repozitorijumAdmin.proveriUBazi(username, password); 
     }
     
 }
